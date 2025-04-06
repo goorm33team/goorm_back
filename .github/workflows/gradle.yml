@@ -51,11 +51,12 @@ jobs:
             tmux kill-session -t deploy || echo "no existing tmux session"
 
             echo "🚀 새 JAR 실행 중 (tmux)..."
-            tmux new-session -d -s deploy 'bash -c "java -jar company-0.0.1-SNAPSHOT.jar > app.log 2>&1"'
+            tmux new-session -d -s deploy 'java -jar company-0.0.1-SNAPSHOT.jar > /home/ubuntu/app.log 2>&1'
 
             echo "⏳ 잠시 대기 중..."
             sleep 5
 
             echo "✅ 배포 완료"
             true
+
 
