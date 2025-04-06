@@ -41,18 +41,6 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             cd /home/ubuntu
-            echo "🛑 기존 애플리케이션 종료 시도 중..."
-            pkill -f 'java.*company-0.0.1-SNAPSHOT.jar' || echo "No previous process"
-
-            echo "🚀 새 JAR 실행 중..."
-      - name: Run jar on EC2
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.EC2_KEY }}
-          script: |
-            cd /home/ubuntu
 
             echo "🛑 기존 애플리케이션 종료 시도 중..."
             pkill -f 'java.*company-0.0.1-SNAPSHOT.jar' || echo "No previous process"
@@ -64,5 +52,3 @@ jobs:
             tmux new-session -d -s deploy 'java -jar company-0.0.1-SNAPSHOT.jar > app.log 2>&1'
 
             echo "✅ 배포 완료"
-
-          
