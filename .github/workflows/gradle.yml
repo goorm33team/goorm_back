@@ -44,14 +44,8 @@ jobs:
             echo "🛑 기존 애플리케이션 종료 시도 중..."
             pkill -f 'java.*company-0.0.1-SNAPSHOT.jar' || echo "No previous process"
 
-            echo "🔧 tmux 설치 확인 중..."
-            command -v tmux || (sudo apt update && sudo apt install -y tmux)
-
-            echo "🧹 기존 tmux 세션 종료 시도..."
-            tmux kill-session -t deploy || echo "no existing tmux session"
-
-            echo "🚀 새 JAR 실행 중 (tmux)..."
-            tmux new-session -d -s deploy 'java -jar company-0.0.1-SNAPSHOT.jar > /home/ubuntu/app.log 2>&1'
+            echo "🚀 새 JAR 실행 중 (nohup)..."
+            nohup java -jar company-0.0.1-SNAPSHOT.jar > /home/ubuntu/app.log 2>&1 &
 
             echo "⏳ 잠시 대기 중..."
             sleep 5
