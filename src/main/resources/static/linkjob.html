@@ -1,0 +1,32 @@
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Link Job</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+    <header class="top-bar">
+        <h1 class="logo">Link Job</h1>
+        <span class="search-icon">🔍</span>
+    </header>
+
+    <section class="register-box">
+        <img src="img/fire.png" alt="fire" class="fire-icon">
+        <p>내 회사 등록하러 가기!</p>
+        <button onclick="goToRegister()">직무 등록하기</button>
+    </section>
+
+    <section class="company-list-section">
+        <div class="title-row">
+            <h2>회사 목록</h2>
+            <a href="company-list.html" class="see-all">전체보기 ></a>
+        </div>
+        <div class="company-list" id="company-list">
+            <!-- JS로 동적으로 카드 채움 -->
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    </body>
+    </html>

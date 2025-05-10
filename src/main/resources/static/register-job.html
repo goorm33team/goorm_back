@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>직무 등록하기</title>
+    <link rel="stylesheet" href="/css/register-job.css">
+</head>
+<body>
+
+<!-- 회사 등록 폼 -->
+<div id="company-form">
+    <h3>회사 등록하기</h3>
+    <p>등록할 회사의 이름과 소재지, 업종을 알려주세요</p>
+
+    <p>회사명</p>
+    <input type="text" id="companyName" placeholder="회사명을 입력하세요.">
+    <p>소재지</p>
+    <input type="text" id="location" placeholder="소재지를 입력하세요.">
+    <p>업종</p>
+    <input type="text" id="industry" placeholder="업종을 입력하세요.">
+
+    <button onclick="goToJobForm()">다음</button>
+</div>
+
+<!-- 직무 등록 폼 -->
+<div id="job-form" style="display: none;">
+    <h2>직무 등록하기</h2>
+    <p>등록할 직무에 대한 자세한 정보를 알려주세요</p>
+
+    <select id="companySelect"></select>
+    <p>경력</p>
+    <input type="text" id="year" placeholder="ex) 1년 이상, 무관"> <!-- 년차 백엔드 엔티티 넣기-->
+    <p>직무</p>
+    <input type="text" id="jobTitle" placeholder="직무를 입력하세요">
+    <p>연봉</p>
+    <input type="text" id="description" placeholder="연봉을 입력하세요">
+    <p>스킬</p>
+    <input type="text" id="etcInfo" placeholder="ex)TOEIC, OPIC">
+
+    <button onclick="submitJob()">완료</button>
+</div>
+
+<script src="/js/register-job.js"></script>
+</body>
+</html>
